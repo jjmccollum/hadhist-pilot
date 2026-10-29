@@ -1,0 +1,730 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<beast version="2.7" namespace="beast.base.core
+    :beast.base.evolution.alignment
+    :beast.base.evolution.tree.coalescent
+    :beast.base.evolution.tree
+    :beast.base.core.util
+    :beast.base.evolution.datatype
+    :beast.base.evolution.nuc
+    :beast.base.evolution.operator
+    :beast.base.evolution.sitemodel
+    :beast.base.evolution.substitutionmodel
+    :beast.base.evolution.likelihood
+    :beast.base.evolution.branchratemodel
+    :beast.base.inference
+    :beast.base.inference.operator
+    :beast.base.inference.distribution
+    :beast.base.inference.parameter
+    :beast.base.coupledMCMC
+    :morphmodels.evolution.substitutionmodel
+    :bdsky.evolution.speciation
+    :contactrees
+    :contactrees.model
+    :contactrees.util
+    :contactrees.operators">
+    <!-- Our taxa consist of variants of the hadith as they were compiled in written form.
+    Some variants (9, 11, 12, 13, 14) are preserved in multiple chains associated with different transmitters -->
+    <taxonset id="taxa" spec="beast.base.evolution.alignment.TaxonSet">
+        <taxon id="V1" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V2" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V3" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V4" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V5" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V6" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V7" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V8" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V9a" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V9b" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V9c" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V9d" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V9e" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V10" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V11a" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V11b" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V12a" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V12b" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V12c" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V12d" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V13a" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V13b" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V14a" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V14b" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V14c" spec="beast.base.evolution.alignment.Taxon"/>
+        <taxon id="V15" spec="beast.base.evolution.alignment.Taxon"/>
+    </taxonset>
+    <!-- This is the alignment of motif data, 
+    which details which motifs occur in different variants of the tradition -->
+    <data id="data.motifs" dataType="standard" stateCount="5">
+        <sequence id="data.motifs.V1" taxon="V1"     value="0110314111000000"/>
+        <sequence id="data.motifs.V2" taxon="V2"     value="0000301200101000"/>
+        <sequence id="data.motifs.V3" taxon="V3"     value="0000301200111110"/>
+        <sequence id="data.motifs.V4" taxon="V4"     value="1000101200000000"/>
+        <sequence id="data.motifs.V5" taxon="V5"     value="2000001200000001"/>
+        <sequence id="data.motifs.V6" taxon="V6"     value="2000001200000001"/>
+        <sequence id="data.motifs.V7" taxon="V7"     value="0100202200100000"/>
+        <sequence id="data.motifs.V8" taxon="V8"     value="0000203200100000"/>
+        <sequence id="data.motifs.V9a" taxon="V9a"   value="3001301210200000"/>
+        <sequence id="data.motifs.V9b" taxon="V9b"   value="3001301210200000"/>
+        <sequence id="data.motifs.V9c" taxon="V9c"   value="3001301210200000"/>
+        <sequence id="data.motifs.V9d" taxon="V9d"   value="3001301210100000"/>
+        <sequence id="data.motifs.V9e" taxon="V9e"   value="3001301210100000"/>
+        <sequence id="data.motifs.V10" taxon="V10"   value="0001301200100000"/>
+        <sequence id="data.motifs.V11a" taxon="V11a" value="0001301200100000"/>
+        <sequence id="data.motifs.V11b" taxon="V11b" value="0001301200100000"/>
+        <sequence id="data.motifs.V12a" taxon="V12a" value="0000301211000000"/>
+        <sequence id="data.motifs.V12b" taxon="V12b" value="0000301210000000"/>
+        <sequence id="data.motifs.V12c" taxon="V12c" value="0000301210000000"/>
+        <sequence id="data.motifs.V12d" taxon="V12d" value="0000301211000000"/>
+        <sequence id="data.motifs.V13a" taxon="V13a" value="0000201200102200"/>
+        <sequence id="data.motifs.V13b" taxon="V13b" value="0000201200102200"/>
+        <sequence id="data.motifs.V14a" taxon="V14a" value="0000301200100000"/>
+        <sequence id="data.motifs.V14b" taxon="V14b" value="0000301200100000"/>
+        <sequence id="data.motifs.V14c" taxon="V14c" value="0000301200100000"/>
+        <sequence id="data.motifs.V15" taxon="V15"   value="0000201200100000"/>
+        <!-- The userDataType block describes the motifs represented by each site of variation and how the sites of variation are encoded.
+        Since some sites of variation may involve multiple features that are mutually exclusive,
+        we will model them with multiple states as we would model morphological features -->
+        <userDataType id="data.motifs.dtype" spec="StandardData" nrOfStates="5">
+            <charstatelabels characterName="Framing of the account with reference to another person" codeMap="0=0, 1=1, 2=2, 3=3, ?=0 1 2 3" id="framing" spec="UserDataType" states="4" value="absent, 'ʿAlī b. Abī Ṭālib, third-person', 'ʿAlī b. Abī Ṭālib, first-person', 'Abu Talha, narrated by his servant boy'"/>
+            <charstatelabels characterName="Reference to al-Suqyā" codeMap="0=0, 1=1, ?=0 1" id="al-suqya" spec="UserDataType" states="2" value="absent, present"/>
+            <charstatelabels characterName="Reference to Saʿd ibn Abi Waqqas" codeMap="0=0, 1=1, ?=0 1" id="sad-ibn-abi-waqqas" spec="UserDataType" states="2" value="absent, present"/>
+            <charstatelabels characterName="Reference to Mount Uhud ('a mountain that loves us and whom we love')" codeMap="0=0, 1=1, ?=0 1" id="mount-uhud" spec="UserDataType" states="2" value="absent, present"/>
+            <charstatelabels characterName="Description of the Prophet" codeMap="0=0, 1=1, 2=2, 3=3, ?=0 1 2 3" id="prophet" spec="UserDataType" states="4" value="absent, 'Muhammad', 'The Prophet', 'The Messenger of Allah'"/>
+            <charstatelabels characterName="Reference to the Prophet's performance of ablution" codeMap="0=0, 1=1, ?=0 1" id="ablution" spec="UserDataType" states="2" value="absent, present"/>
+            <charstatelabels characterName="Parallel references to Abraham and the Prophet" codeMap="0=0, 1=1, 2=2, 3=3, 4=4, ?=0 1 2 3 4" id="abraham-prophet" spec="UserDataType" states="5" value="absent, 'References to Abraham and the Prophet without descriptions', 'Reference to Abraham as servant and messenger, reference to the Prophet without description', 'Reference to Abraham as friend and prophet, reference to the Prophet as servant and prophet', 'Reference to Abraham as servant and friend and the Prophet as servant and messenger'"/>
+            <charstatelabels characterName="Parallel references to Mecca and Medina" codeMap="0=0, 1=1, 2=2, ?=0 1 2" id="mecca-medina" spec="UserDataType" states="3" value="absent, 'Mecca blessed, Medina blessed', 'Mecca sanctified, Medina sanctified'"/>
+            <charstatelabels characterName="Reference to the blessing of the measures of the sāʿ and mudd" codeMap="0=0, 1=1, ?=0 1" id="measures" spec="UserDataType" states="2" value="absent, present"/>
+            <charstatelabels characterName="Reference to a double blessing for Medina" codeMap="0=0, 1=1, ?=0 1" id="double-blessing" spec="UserDataType" states="2" value="absent, present"/>
+            <charstatelabels characterName="Reference to the two boundary markers of the sanctuary" codeMap="0=0, 1=1, 2=2, ?=0 1 2" id="boundary-markers" spec="UserDataType" states="3" value="absent, 'Lava fields', 'Mountains'"/>
+            <charstatelabels characterName="Reference to the shade of ʿAyr and the shade of Wuʿayr" codeMap="0=0, 1=1, ?=0 1" id="ayr-wuayr" spec="UserDataType" states="2" value="absent, present"/>
+            <charstatelabels characterName="Reference to trees in Medina" codeMap="0=0, 1=1, 2=2, ?=0 1 2" id="trees" spec="UserDataType" states="3" value="absent, 'Prohibition on cutting trees', 'Prohibition on cutting thorny trees'"/>
+            <charstatelabels characterName="Reference to game in Medina" codeMap="0=0, 1=1, 2=2, ?=0 1 2" id="game" spec="UserDataType" states="3" value="absent, 'Game may be eaten', 'Game may not be hunted'"/>
+            <charstatelabels characterName="Reference to Medina as a barīdun" codeMap="0=0, 1=1, ?=0 1" id="baridun" spec="UserDataType" states="2" value="absent, present"/>
+            <charstatelabels characterName="Promise of divine punishment for tyranny" codeMap="0=0, 1=1, ?=0 1" id="tyranny" spec="UserDataType" states="2" value="absent, present"/>
+        </userDataType>
+    </data>
+    <!-- A filtered alignment represents a subset of columns in the sequence matrix.
+    For our purposes, each filtered alignment will cover exactly one motif -->
+    <data id="data.motifs.framing" spec="FilteredAlignment" data="@data.motifs" filter="1">
+        <userDataType spec="StandardData" id="morphDataType.motifs.framing" nrOfStates="4"/>
+    </data>
+    <data id="data.motifs.al-suqya" spec="FilteredAlignment" data="@data.motifs" filter="2">
+        <userDataType spec="StandardData" id="morphDataType.motifs.al-suqya" nrOfStates="2"/>
+    </data>
+    <data id="data.motifs.sad-ibn-abi-waqqas" spec="FilteredAlignment" data="@data.motifs" filter="3">
+        <userDataType spec="StandardData" id="morphDataType.motifs.sad-ibn-abi-waqqas" nrOfStates="2"/>
+    </data>
+    <data id="data.motifs.mount-uhud" spec="FilteredAlignment" data="@data.motifs" filter="4">
+        <userDataType spec="StandardData" id="morphDataType.motifs.mount-uhud" nrOfStates="2"/>
+    </data>
+    <data id="data.motifs.prophet" spec="FilteredAlignment" data="@data.motifs" filter="5">
+        <userDataType spec="StandardData" id="morphDataType.motifs.prophet" nrOfStates="4"/>
+    </data>
+    <data id="data.motifs.ablution" spec="FilteredAlignment" data="@data.motifs" filter="6">
+        <userDataType spec="StandardData" id="morphDataType.motifs.ablution" nrOfStates="2"/>
+    </data>
+    <data id="data.motifs.abraham-prophet" spec="FilteredAlignment" data="@data.motifs" filter="7">
+        <userDataType spec="StandardData" id="morphDataType.motifs.abraham-prophet" nrOfStates="5"/>
+    </data>
+    <data id="data.motifs.mecca-medina" spec="FilteredAlignment" data="@data.motifs" filter="8">
+        <userDataType spec="StandardData" id="morphDataType.motifs.mecca-medina" nrOfStates="3"/>
+    </data>
+    <data id="data.motifs.measures" spec="FilteredAlignment" data="@data.motifs" filter="9">
+        <userDataType spec="StandardData" id="morphDataType.motifs.measures" nrOfStates="2"/>
+    </data>
+    <data id="data.motifs.double-blessing" spec="FilteredAlignment" data="@data.motifs" filter="10">
+        <userDataType spec="StandardData" id="morphDataType.motifs.double-blessing" nrOfStates="2"/>
+    </data>
+    <data id="data.motifs.boundary-markers" spec="FilteredAlignment" data="@data.motifs" filter="11">
+        <userDataType spec="StandardData" id="morphDataType.motifs.boundary-markers" nrOfStates="3"/>
+    </data>
+    <data id="data.motifs.ayr-wuayr" spec="FilteredAlignment" data="@data.motifs" filter="12">
+        <userDataType spec="StandardData" id="morphDataType.motifs.ayr-wuayr" nrOfStates="2"/>
+    </data>
+    <data id="data.motifs.trees" spec="FilteredAlignment" data="@data.motifs" filter="13">
+        <userDataType spec="StandardData" id="morphDataType.motifs.trees" nrOfStates="3"/>
+    </data>
+    <data id="data.motifs.game" spec="FilteredAlignment" data="@data.motifs" filter="14">
+        <userDataType spec="StandardData" id="morphDataType.motifs.game" nrOfStates="3"/>
+    </data>
+    <data id="data.motifs.baridun" spec="FilteredAlignment" data="@data.motifs" filter="15">
+        <userDataType spec="StandardData" id="morphDataType.motifs.baridun" nrOfStates="2"/>
+    </data>
+    <data id="data.motifs.tyranny" spec="FilteredAlignment" data="@data.motifs" filter="16">
+        <userDataType spec="StandardData" id="morphDataType.motifs.tyranny" nrOfStates="2"/>
+    </data>
+    <!-- The following block set contains blocks for the motif sites only -->
+    <stateNode spec="BlockSet" id="motifBlocks" network="@acg">
+        <block spec="Block" id="block.framing"/>
+        <block spec="Block" id="block.al-suqya"/>
+        <block spec="Block" id="block.sad-ibn-abi-waqqas"/>
+        <block spec="Block" id="block.mount-uhud"/>
+        <block spec="Block" id="block.prophet"/>
+        <block spec="Block" id="block.ablution"/>
+        <block spec="Block" id="block.abraham-prophet"/>
+        <block spec="Block" id="block.mecca-medina"/>
+        <block spec="Block" id="block.measures"/>
+        <block spec="Block" id="block.double-blessing"/>
+        <block spec="Block" id="block.boundary-markers"/>
+        <block spec="Block" id="block.ayr-wuayr"/>
+        <block spec="Block" id="block.trees"/>
+        <block spec="Block" id="block.game"/>
+        <block spec="Block" id="block.baridun"/>
+        <block spec="Block" id="block.tyranny"/>
+    </stateNode>
+    <!-- The substitution models used to describe changes at sites of variation over time.
+    For motif sites, we use the LewisMK model, one for each number of states.
+    The frequencies element describes the equilibrium state of the substitution model.
+    For this analysis, we assume that all states are equally likely -->
+    <substModel id="substModel.2" spec="LewisMK" stateNumber="2">
+        <frequencies id="substModel.2.frequencies" spec="Frequencies" frequencies="0.5 0.5"/>
+    </substModel>
+    <substModel id="substModel.3" spec="LewisMK" stateNumber="3">
+        <frequencies id="substModel.3.frequencies" spec="Frequencies" frequencies="0.33333333 0.33333333 0.33333333"/>
+    </substModel>
+    <substModel id="substModel.4" spec="LewisMK" stateNumber="4">
+        <frequencies id="substModel.4.frequencies" spec="Frequencies" frequencies="0.25 0.25 0.25 0.25"/>
+    </substModel>
+    <substModel id="substModel.5" spec="LewisMK" stateNumber="5">
+        <frequencies id="substModel.5.frequencies" spec="Frequencies" frequencies="0.2 0.2 0.2 0.2 0.2"/>
+    </substModel>
+    <!-- We will then define site models for each of these substitution models.
+    For this analysis, we will make the simplifying assumption that all motif sites evolve at the same rate,
+    so we will just use the site models as wrappers for the substitution models -->
+    <siteModel id="siteModel.2" spec="SiteModel" substModel="@substModel.2"/>
+    <siteModel id="siteModel.3" spec="SiteModel" substModel="@substModel.3"/>
+    <siteModel id="siteModel.4" spec="SiteModel" substModel="@substModel.4"/>
+    <siteModel id="siteModel.5" spec="SiteModel" substModel="@substModel.5"/>
+    <!-- A clock model relates the duration of a branch of the transmission history (in years) 
+    to the expected number of changes along it.
+    For this analysis, we will use a single branch model for motifs 
+    and one epoch-based clock model for each transmitter attestation feature, each with a rate of 0 before the height of the associated trasmitter
+    (because a transmitter could not be referenced before he was known).
+    We will also use higher clock rates for transmitters who appear in multiple distinct chains, 
+    as these transmitters are either well-known authorities who could have been cited (possibly falsely) on multiple occasions
+    or hadith collectors whose names came to be attached to multiple independent variants of the tradition -->
+    <branchRateModel id="motifs.clock" spec="StrictClockModel" clock.rate="@motifs.clockRate"/>
+    <!-- This large block describes how we will be running the analysis and which parameters will make up its internal state.
+    The chainLength attribute indicates how many hypotheses we will be sampling over the course of the analysis.
+    It is best to use a large enough number to ensure that we explore the space of possible transmission hypotheses reasonably well -->
+    <run id="mcmc" spec="MCMC" chainLength="20000000">
+        <state id="state" storeEvery="5000">
+            <!-- The main tree is actually a network, consisting of a strict tree augmented with contact edges that represent lateral influence -->
+            <stateNode id="acg" spec="contactrees.ConversionGraph" taxonset="@taxa">
+                <!-- Here we specify the heights of the preserved chains of the tradition.
+                For our purposes, we will use the date of a chain's compilation to determine its height.
+                BEAST 2 assumes that the lowest leaf of the tree is at height 0,
+                so we will set a chain's height to its compilation date 
+                minus the compilation date of the last sampled chain that was compiled. 
+                In this dataset, the latest compilation was done by al-Tusi in 460 AH, 
+                so all heights are relative to this date -->
+                <trait id="dateTrait" spec="beast.base.evolution.tree.TraitSet" traitname="date-backward">
+                    V1 = 181.0,
+                    V2 = 131.0,
+                    V3 = 0.0,
+                    V4 = 0.0,
+                    V5 = 131.0,
+                    V6 = 0.0,
+                    V7 = 249.0,
+                    V8 = 187.0,
+                    V9a = 199.0,
+                    V9b = 199.0,
+                    V9c = 199.0,
+                    V9d = 199.0,
+                    V9e = 199.0,
+                    V10 = 253.0,
+                    V11a = 181.0,
+                    V11b = 181.0,
+                    V12a = 199.0,
+                    V12b = 199.0,
+                    V12c = 199.0,
+                    V12d = 199.0,
+                    V13a = 199.0,
+                    V13b = 199.0,
+                    V14a = 199.0,
+                    V14b = 199.0,
+                    V14c = 199.0,
+                    V15 = 225.0
+                    <taxa idref="taxa"/>
+                </trait>
+            </stateNode>
+            <!-- These are the rates of the clock model, measured in expected changes per site per year -->
+            <stateNode id="motifs.clockRate" spec="RealParameter" upper="1.0" estimate="true">0.0005</stateNode>
+            <!-- The following elements represent the hidden parameters of the birth-death model under which the tradition is assumed to have arisen.
+            The initial values will not necessarily be good estimates of the actual values, 
+            but that's okay, because we will be sampling different values for these parameters during the analysis to converge on ones that best explain the data -->
+            
+            <!-- The origin parameter corresponds to the height (i.e., the amount of years before the present) at which the transmission process is assumed to have begun.
+            In any case, this presumably could not predate 0 AH = 622 CE; equivalently, it cannot be more than 1404 years before the present.
+            Using our base date of 460 AH (the date at which the latest sampled variants were compiled),
+            the maximum height is 460.
+            We will assume an origin date within 150 years of this date (thus a height range of 310 to 460)
+            so we can test the hypothesis of the hadith's authenticity -->
+            <stateNode id="origin" spec="RealParameter" lower="310.0" upper="460.0" estimate="true">385.0</stateNode>
+            <!-- The birth rate is the rate (measured in expected events per year) at which a population preserving the oral tradition splits into two,
+            with the tradition developing independently (apart from contact events) among the two subpopulations thereafter -->
+            <stateNode id="birthRate" spec="RealParameter" estimate="true">0.02</stateNode>
+            <!-- The death rate is the rate (measured in expected events per year) at which a population with its own form of the oral tradition either physically died out 
+            or stopped preserving the oral tradition.
+            The reciprocal of this value gives the expected lifespan (in years) of the tradition within a given population -->
+            <stateNode id="deathRate" spec="RealParameter" estimate="true">0.01</stateNode>
+            <!-- The sampling rate is the rate (measured in expected events per year) at which a variant of the oral tradition
+            is compiled in writing, thus "fossilizing" it in its current form -->
+            <stateNode id="samplingRate" spec="RealParameter" estimate="true">0.004</stateNode>
+            <!-- The sampling proportion is the proportion of variants of the tradition that are still actively circulating in oral form at the base height of the tree.
+            For our purposes, the base height will correspond to the time at which the last collated variant was compiled.
+            If we suspect that there are surviving variants of the oral tradition that we do not know about or have not collated, then we can account for that here -->
+            <stateNode id="samplingProportion" spec="RealParameter" lower="0.0" upper="1.0" estimate="true">0.1</stateNode>
+            <!-- The following elements represent the parameters of the contacTrees model -->
+            <stateNode idref="block.framing"/>
+            <stateNode idref="block.al-suqya"/>
+            <stateNode idref="block.sad-ibn-abi-waqqas"/>
+            <stateNode idref="block.mount-uhud"/>
+            <stateNode idref="block.prophet"/>
+            <stateNode idref="block.ablution"/>
+            <stateNode idref="block.abraham-prophet"/>
+            <stateNode idref="block.mecca-medina"/>
+            <stateNode idref="block.measures"/>
+            <stateNode idref="block.double-blessing"/>
+            <stateNode idref="block.boundary-markers"/>
+            <stateNode idref="block.ayr-wuayr"/>
+            <stateNode idref="block.trees"/>
+            <stateNode idref="block.game"/>
+            <stateNode idref="block.baridun"/>
+            <stateNode idref="block.tyranny"/>
+            <!-- The conversion rate is the rate (measured in expected events per year) at which one variant of the tradition influences another -->
+            <stateNode id="conversionRate" spec="RealParameter" estimate="false">0.01</stateNode>
+            <!-- The pMove parameter is the borrowing probability. 
+            It describes the probability that a given motif will be borrowed from another variant of the tradition at a contact event.
+            For this analysis, we will fix it at 40%, as lower borrowing probabilities penalize contact events -->
+            <stateNode id="pMove" spec="RealParameter" estimate="false">0.4</stateNode>
+        </state>
+        <!-- Next, we define the probability distributions that we will use to estimate the posterior probability distribution of transmissional hypotheses.
+        We calculate the posterior probability of a hypothesis in terms of its prior probability and its explanatory power using Bayes's Rule -->
+        <distribution id="posterior" spec="CompoundDistribution">
+            <!-- The first ingredient of the posterior probability is the prior probability.
+            This is the product of the prior probabilities of all the independent parameters that make up a transmissional hypothesis -->
+            <distribution id="prior" spec="CompoundDistribution">
+                <!-- This prior probability distribution measures how likely an origin height is a priori
+                (that is, before we account for how well it explains the data). 
+                We do not have any assumptions about the authenticity of the hadith, so we will use a uniform prior -->
+                <distribution id="prior.origin" spec="Prior" x="@origin">
+                    <!-- Recall that the height range is measured from the date of the latest compilation, which in our case is 460 AH -->
+                    <distr spec="beast.base.inference.distribution.Uniform" lower="310.0" upper="460.0"/>
+                </distribution>
+                <!-- This prior probability distribution measures how likely a birth rate is a priori
+                (that is, before we account for how well it explains the data). -->
+                <distribution id="prior.birthRate" spec="Prior" x="@birthRate">
+                    <distr spec="beast.base.inference.distribution.LogNormalDistributionModel" meanInRealSpace="true" M="0.02" S="2.3026"/>
+                </distribution>
+                <!-- This prior probability distribution measures how likely a death rate is a priori
+                (that is, before we account for how well it explains the data). -->
+                <distribution id="prior.deathRate" spec="Prior" x="@deathRate">
+                    <distr spec="beast.base.inference.distribution.LogNormalDistributionModel" meanInRealSpace="true" M="0.01" S="2.3026"/>
+                </distribution>
+                <!-- This prior probability distribution measures how likely a sampling rate is a priori
+                (that is, before we account for how well it explains the data). -->
+                <distribution id="prior.samplingRate" spec="Prior" x="@samplingRate">
+                    <distr spec="beast.base.inference.distribution.LogNormalDistributionModel" meanInRealSpace="true" M="0.004" S="2.3026"/>
+                </distribution>
+                <!-- This prior probability distribution measures how likely a sampling proportion is a priori
+                (that is, before we account for how well it explains the data).
+                Probabilities are restricted to the domain [0, 1], so we will use a Beta distribution for the prior.
+                We assume that a lower sampling proportion is more likely, so we will use parameters for the distribution that favor lower values. -->
+                <distribution id="prior.samplingProportion" spec="Prior" x="@samplingProportion">
+                    <distr spec="beast.base.inference.distribution.Beta" alpha="2" beta="64"/>
+                </distribution>
+                <!-- This prior probability distribution measures how likely a sampled conversion rate is a priori
+                (that is, before we account for how well it explains the data). 
+                Intuitively, we have strong reason to believe that contact events between branches happened, so we will assume a strong prior 
+                on the frequency of these events -->
+                <!-- <distribution id="prior.conversionRate" spec="Prior" x="@conversionRate">
+                    <distr spec="beast.base.inference.distribution.Uniform" lower="0.01" upper="0.05"/>
+                </distribution> -->
+                <!-- This prior probability distribution measures how likely a sampled borrowing probability is a priori
+                (that is, before we account for how well it explains the data).
+                Probabilities are restricted to the domain [0, 1], so we will use a Beta distribution for the prior.
+                Intuitively, we expect motifs to be borrowed sparsely (since we just model the majority of inherited features through the usual process of transmission), 
+                so we will assume a distribution with a lower peak -->
+                <!-- <distribution id="prior.pMove" spec="Prior" x="@pMove">
+                    <distr id="prior.pMove.distr" spec="beast.base.inference.distribution.Beta" alpha="2" beta="8"/>
+                </distribution> -->
+                <!-- This prior probability distribution measures how likely the borrowings of motifs described by a proposed set of contact events are a priori
+                (that is, before we account for how well they explain the data).
+                It uses the pMove borrowing probability defined above to measure this.
+                While sparse borrowing or extensive borrowing may explain the data better, it might not be what we would expect under a given borrowing probability.
+                The prior probability distribution accounts for this -->
+                <distribution id="ConvMovePrior" spec="ConversionMovePrior" network="@acg" blockSet="@motifBlocks" pMove="@pMove"/>
+                <!-- This prior probability distribution measures how likely a network 
+                (consisting of a tree topology, a set of contact edges, and the parameters governing births, deaths, and contact events)
+                is a priori (that is, before we account for how well they explain the data).
+                We have defined all of the parameters above already, so we will just reference them here -->
+                <distribution id="ACGBirthDeathModel" spec="contactrees.model.ACGDistribution" network="@acg" conversionRate="@conversionRate" linearContactGrowth="true" upperConvCountBound="50">
+                    <cfModel spec="BirthDeathSkylineModel" id="birthDeath" tree="@acg">
+                        <origin idref="origin"/>
+                        <birthRate idref="birthRate"/>
+                        <deathRate idref="deathRate"/>
+                        <samplingRate idref="samplingRate"/>
+                        <samplingProportion idref="samplingProportion"/>
+                    </cfModel>    
+                </distribution>
+                <!-- These prior probability distributions measure how likely branch rates are a priori
+                (that is, before we account for how well they explain the data).
+                Intuitively, we expect motifs to change slowly over time,
+                so we will assume a distribution that peaks at a low real mean and has a real standard deviation of an order of magnitude around that mean -->
+                <distribution id="prior.motifs.clockRate" spec="Prior" x="@motifs.clockRate">
+                    <distr spec="beast.base.inference.distribution.LogNormalDistributionModel" meanInRealSpace="true" M="0.0005" S="2.3026"/>
+                </distribution>
+                <!-- Next, we have priors for the heights of certain variants. -->
+                <distribution id="prior.date.V10" spec="almostbeast.math.distributions.AlmostMRCAPrior" tree="@acg" tipsonly="true">
+                    <taxonset id="taxonSet.V10" spec="beast.base.evolution.alignment.TaxonSet">
+                        <taxon idref="V10"/>
+                    </taxonset>
+                    <!-- There is some uncertainty regarding the compiler of this variant;
+                    the compilation date is between 179 AH (height 281) and 234 AH (height 226) -->
+                    <distr spec="beast.base.inference.distribution.Uniform" id="prior.date.V10.dist" lower="226" upper="281"/>
+                </distribution>
+            </distribution>
+            <!-- The second ingredient of the posterior probability is the explanatory power, or the likelihood of seeing the data under a given transmissional hypothesis.
+            Like the prior probability, this can be computed as a product of smaller indepedent distributions for different aspects of the model -->
+            <distribution id="likelihood" spec="CompoundDistribution" useThreads="true">
+                <!-- We evaluate the explanatory power of the network in terms of its explanatory power for each motif individually.
+                We assume that these motifs evolved independently, so we can multiply these individual likelihoods together to get the full likelihood -->
+                <distribution id="likelihood.framing" spec="TreeLikelihood" data="@data.motifs.framing" siteModel="@siteModel.4" useAmbiguities="true">
+                    <!-- If this motif was borrowed along contact edges, then its tree will have a different shape than the main tree.
+                    We will therefore use a MarginalTree element when we evaluate its explanatory power -->
+                    <tree id="marginalTree.framing" spec="MarginalTree" network="@acg" block="@block.framing" branchRateModel="@motifs.clock"/>
+                    <!-- The rootFrequencies element gives each state's probability of occurring at the root of the family tree.
+                    We can modify these probabilities if we think that some features are more likely than others to be original -->
+                    <rootFrequencies spec="Frequencies" id="rootfreqs.framing">
+                        <frequencies spec="RealParameter" id="rootfrequencies.framing" value="0.25 0.25 0.25 0.25" estimate="false"/>
+                    </rootFrequencies>
+                </distribution>
+                <distribution id="likelihood.al-suqya" spec="TreeLikelihood" data="@data.motifs.al-suqya" siteModel="@siteModel.2" useAmbiguities="true">
+                    <!-- If this motif was borrowed along contact edges, then its tree will have a different shape than the main tree.
+                    We will therefore use a MarginalTree element when we evaluate its explanatory power -->
+                    <tree id="marginalTree.al-suqya" spec="MarginalTree" network="@acg" block="@block.al-suqya" branchRateModel="@motifs.clock"/>
+                    <!-- The rootFrequencies element gives each state's probability of occurring at the root of the family tree.
+                    We can modify these probabilities if we think that some features are more likely than others to be original -->
+                    <rootFrequencies spec="Frequencies" id="rootfreqs.al-suqya">
+                        <frequencies spec="RealParameter" id="rootfrequencies.al-suqya" value="0.5 0.5" estimate="false"/>
+                    </rootFrequencies>
+                </distribution>
+                <distribution id="likelihood.sad-ibn-abi-waqqas" spec="TreeLikelihood" data="@data.motifs.sad-ibn-abi-waqqas" siteModel="@siteModel.2" useAmbiguities="true">
+                    <!-- If this motif was borrowed along contact edges, then its tree will have a different shape than the main tree.
+                    We will therefore use a MarginalTree element when we evaluate its explanatory power -->
+                    <tree id="marginalTree.sad-ibn-abi-waqqas" spec="MarginalTree" network="@acg" block="@block.sad-ibn-abi-waqqas" branchRateModel="@motifs.clock"/>
+                    <!-- The rootFrequencies element gives each state's probability of occurring at the root of the family tree.
+                    We can modify these probabilities if we think that some features are more likely than others to be original -->
+                    <rootFrequencies spec="Frequencies" id="rootfreqs.sad-ibn-abi-waqqas">
+                        <frequencies spec="RealParameter" id="rootfrequencies.sad-ibn-abi-waqqas" value="0.5 0.5" estimate="false"/>
+                    </rootFrequencies>
+                </distribution>
+                <distribution id="likelihood.mount-uhud" spec="TreeLikelihood" data="@data.motifs.mount-uhud" siteModel="@siteModel.2" useAmbiguities="true">
+                    <!-- If this motif was borrowed along contact edges, then its tree will have a different shape than the main tree.
+                    We will therefore use a MarginalTree element when we evaluate its explanatory power -->
+                    <tree id="marginalTree.mount-uhud" spec="MarginalTree" network="@acg" block="@block.mount-uhud" branchRateModel="@motifs.clock"/>
+                    <!-- The rootFrequencies element gives each state's probability of occurring at the root of the family tree.
+                    We can modify these probabilities if we think that some features are more likely than others to be original -->
+                    <rootFrequencies spec="Frequencies" id="rootfreqs.mount-uhud">
+                        <frequencies spec="RealParameter" id="rootfrequencies.mount-uhud" value="0.5 0.5" estimate="false"/>
+                    </rootFrequencies>
+                </distribution>
+                <distribution id="likelihood.prophet" spec="TreeLikelihood" data="@data.motifs.prophet" siteModel="@siteModel.4" useAmbiguities="true">
+                    <!-- If this motif was borrowed along contact edges, then its tree will have a different shape than the main tree.
+                    We will therefore use a MarginalTree element when we evaluate its explanatory power -->
+                    <tree id="marginalTree.prophet" spec="MarginalTree" network="@acg" block="@block.prophet" branchRateModel="@motifs.clock"/>
+                    <!-- The rootFrequencies element gives each state's probability of occurring at the root of the family tree.
+                    We can modify these probabilities if we think that some features are more likely than others to be original -->
+                    <rootFrequencies spec="Frequencies" id="rootfreqs.prophet">
+                        <frequencies spec="RealParameter" id="rootfrequencies.prophet" value="0.25 0.25 0.25 0.25" estimate="false"/>
+                    </rootFrequencies>
+                </distribution>
+                <distribution id="likelihood.ablution" spec="TreeLikelihood" data="@data.motifs.ablution" siteModel="@siteModel.2" useAmbiguities="true">
+                    <!-- If this motif was borrowed along contact edges, then its tree will have a different shape than the main tree.
+                    We will therefore use a MarginalTree element when we evaluate its explanatory power -->
+                    <tree id="marginalTree.ablution" spec="MarginalTree" network="@acg" block="@block.ablution" branchRateModel="@motifs.clock"/>
+                    <!-- The rootFrequencies element gives each state's probability of occurring at the root of the family tree.
+                    We can modify these probabilities if we think that some features are more likely than others to be original -->
+                    <rootFrequencies spec="Frequencies" id="rootfreqs.ablution">
+                        <frequencies spec="RealParameter" id="rootfrequencies.ablution" value="0.5 0.5" estimate="false"/>
+                    </rootFrequencies>
+                </distribution>
+                <distribution id="likelihood.abraham-prophet" spec="TreeLikelihood" data="@data.motifs.abraham-prophet" siteModel="@siteModel.5" useAmbiguities="true">
+                    <!-- If this motif was borrowed along contact edges, then its tree will have a different shape than the main tree.
+                    We will therefore use a MarginalTree element when we evaluate its explanatory power -->
+                    <tree id="marginalTree.abraham-prophet" spec="MarginalTree" network="@acg" block="@block.abraham-prophet" branchRateModel="@motifs.clock"/>
+                    <!-- The rootFrequencies element gives each state's probability of occurring at the root of the family tree.
+                    We can modify these probabilities if we think that some features are more likely than others to be original -->
+                    <rootFrequencies spec="Frequencies" id="rootfreqs.abraham-prophet">
+                        <frequencies spec="RealParameter" id="rootfrequencies.abraham-prophet" value="0.2 0.2 0.2 0.2 0.2" estimate="false"/>
+                    </rootFrequencies>
+                </distribution>
+                <distribution id="likelihood.mecca-medina" spec="TreeLikelihood" data="@data.motifs.mecca-medina" siteModel="@siteModel.3" useAmbiguities="true">
+                    <!-- If this motif was borrowed along contact edges, then its tree will have a different shape than the main tree.
+                    We will therefore use a MarginalTree element when we evaluate its explanatory power -->
+                    <tree id="marginalTree.mecca-medina" spec="MarginalTree" network="@acg" block="@block.mecca-medina" branchRateModel="@motifs.clock"/>
+                    <!-- The rootFrequencies element gives each state's probability of occurring at the root of the family tree.
+                    We can modify these probabilities if we think that some features are more likely than others to be original -->
+                    <rootFrequencies spec="Frequencies" id="rootfreqs.mecca-medina">
+                        <frequencies spec="RealParameter" id="rootfrequencies.mecca-medina" value="0.33333333333333333 0.33333333333333333 0.33333333333333333" estimate="false"/>
+                    </rootFrequencies>
+                </distribution>
+                <distribution id="likelihood.measures" spec="TreeLikelihood" data="@data.motifs.measures" siteModel="@siteModel.2" useAmbiguities="true">
+                    <!-- If this motif was borrowed along contact edges, then its tree will have a different shape than the main tree.
+                    We will therefore use a MarginalTree element when we evaluate its explanatory power -->
+                    <tree id="marginalTree.measures" spec="MarginalTree" network="@acg" block="@block.measures" branchRateModel="@motifs.clock"/>
+                    <!-- The rootFrequencies element gives each state's probability of occurring at the root of the family tree.
+                    We can modify these probabilities if we think that some features are more likely than others to be original -->
+                    <rootFrequencies spec="Frequencies" id="rootfreqs.measures">
+                        <frequencies spec="RealParameter" id="rootfrequencies.measures" value="0.5 0.5" estimate="false"/>
+                    </rootFrequencies>
+                </distribution>
+                <distribution id="likelihood.double-blessing" spec="TreeLikelihood" data="@data.motifs.double-blessing" siteModel="@siteModel.2" useAmbiguities="true">
+                    <!-- If this motif was borrowed along contact edges, then its tree will have a different shape than the main tree.
+                    We will therefore use a MarginalTree element when we evaluate its explanatory power -->
+                    <tree id="marginalTree.double-blessing" spec="MarginalTree" network="@acg" block="@block.double-blessing" branchRateModel="@motifs.clock"/>
+                    <!-- The rootFrequencies element gives each state's probability of occurring at the root of the family tree.
+                    We can modify these probabilities if we think that some features are more likely than others to be original -->
+                    <rootFrequencies spec="Frequencies" id="rootfreqs.double-blessing">
+                        <frequencies spec="RealParameter" id="rootfrequencies.double-blessing" value="0.5 0.5" estimate="false"/>
+                    </rootFrequencies>
+                </distribution>
+                <distribution id="likelihood.boundary-markers" spec="TreeLikelihood" data="@data.motifs.boundary-markers" siteModel="@siteModel.3" useAmbiguities="true">
+                    <!-- If this motif was borrowed along contact edges, then its tree will have a different shape than the main tree.
+                    We will therefore use a MarginalTree element when we evaluate its explanatory power -->
+                    <tree id="marginalTree.boundary-markers" spec="MarginalTree" network="@acg" block="@block.boundary-markers" branchRateModel="@motifs.clock"/>
+                    <!-- The rootFrequencies element gives each state's probability of occurring at the root of the family tree.
+                    We can modify these probabilities if we think that some features are more likely than others to be original -->
+                    <rootFrequencies spec="Frequencies" id="rootfreqs.boundary-markers">
+                        <frequencies spec="RealParameter" id="rootfrequencies.boundary-markers" value="0.33333333333333333 0.33333333333333333 0.33333333333333333" estimate="false"/>
+                    </rootFrequencies>
+                </distribution>
+                <distribution id="likelihood.ayr-wuayr" spec="TreeLikelihood" data="@data.motifs.ayr-wuayr" siteModel="@siteModel.2" useAmbiguities="true">
+                    <!-- If this motif was borrowed along contact edges, then its tree will have a different shape than the main tree.
+                    We will therefore use a MarginalTree element when we evaluate its explanatory power -->
+                    <tree id="marginalTree.ayr-wuayr" spec="MarginalTree" network="@acg" block="@block.ayr-wuayr" branchRateModel="@motifs.clock"/>
+                    <!-- The rootFrequencies element gives each state's probability of occurring at the root of the family tree.
+                    We can modify these probabilities if we think that some features are more likely than others to be original -->
+                    <rootFrequencies spec="Frequencies" id="rootfreqs.ayr-wuayr">
+                        <frequencies spec="RealParameter" id="rootfrequencies.ayr-wuayr" value="0.5 0.5" estimate="false"/>
+                    </rootFrequencies>
+                </distribution>
+                <distribution id="likelihood.trees" spec="TreeLikelihood" data="@data.motifs.trees" siteModel="@siteModel.3" useAmbiguities="true">
+                    <!-- If this motif was borrowed along contact edges, then its tree will have a different shape than the main tree.
+                    We will therefore use a MarginalTree element when we evaluate its explanatory power -->
+                    <tree id="marginalTree.trees" spec="MarginalTree" network="@acg" block="@block.trees" branchRateModel="@motifs.clock"/>
+                    <!-- The rootFrequencies element gives each state's probability of occurring at the root of the family tree.
+                    We can modify these probabilities if we think that some features are more likely than others to be original -->
+                    <rootFrequencies spec="Frequencies" id="rootfreqs.trees">
+                        <frequencies spec="RealParameter" id="rootfrequencies.trees" value="0.33333333333333333 0.33333333333333333 0.33333333333333333" estimate="false"/>
+                    </rootFrequencies>
+                </distribution>
+                <distribution id="likelihood.game" spec="TreeLikelihood" data="@data.motifs.game" siteModel="@siteModel.3" useAmbiguities="true">
+                    <!-- If this motif was borrowed along contact edges, then its tree will have a different shape than the main tree.
+                    We will therefore use a MarginalTree element when we evaluate its explanatory power -->
+                    <tree id="marginalTree.game" spec="MarginalTree" network="@acg" block="@block.game" branchRateModel="@motifs.clock"/>
+                    <!-- The rootFrequencies element gives each state's probability of occurring at the root of the family tree.
+                    We can modify these probabilities if we think that some features are more likely than others to be original -->
+                    <rootFrequencies spec="Frequencies" id="rootfreqs.game">
+                        <frequencies spec="RealParameter" id="rootfrequencies.game" value="0.33333333333333333 0.33333333333333333 0.33333333333333333" estimate="false"/>
+                    </rootFrequencies>
+                </distribution>
+                <distribution id="likelihood.baridun" spec="TreeLikelihood" data="@data.motifs.baridun" siteModel="@siteModel.2" useAmbiguities="true">
+                    <!-- If this motif was borrowed along contact edges, then its tree will have a different shape than the main tree.
+                    We will therefore use a MarginalTree element when we evaluate its explanatory power -->
+                    <tree id="marginalTree.baridun" spec="MarginalTree" network="@acg" block="@block.baridun" branchRateModel="@motifs.clock"/>
+                    <!-- The rootFrequencies element gives each state's probability of occurring at the root of the family tree.
+                    We can modify these probabilities if we think that some features are more likely than others to be original -->
+                    <rootFrequencies spec="Frequencies" id="rootfreqs.baridun">
+                        <frequencies spec="RealParameter" id="rootfrequencies.baridun" value="0.5 0.5" estimate="false"/>
+                    </rootFrequencies>
+                </distribution>
+                <distribution id="likelihood.tyranny" spec="TreeLikelihood" data="@data.motifs.tyranny" siteModel="@siteModel.2" useAmbiguities="true">
+                    <!-- If this motif was borrowed along contact edges, then its tree will have a different shape than the main tree.
+                    We will therefore use a MarginalTree element when we evaluate its explanatory power -->
+                    <tree id="marginalTree.tyranny" spec="MarginalTree" network="@acg" block="@block.tyranny" branchRateModel="@motifs.clock"/>
+                    <!-- The rootFrequencies element gives each state's probability of occurring at the root of the family tree.
+                    We can modify these probabilities if we think that some features are more likely than others to be original -->
+                    <rootFrequencies spec="Frequencies" id="rootfreqs.tyranny">
+                        <frequencies spec="RealParameter" id="rootfrequencies.tyranny" value="0.5 0.5" estimate="false"/>
+                    </rootFrequencies>
+                </distribution>
+            </distribution>
+        </distribution>
+
+        <!-- The next component of an analysis is the operators.
+        Operators propose a modification to some component of the current transmissional hypothesis under consideration.
+        This could involve swapping branches in the general tree topology, adding or removing contact edges, or changing the value of a parameter.
+        We visit the new hypothesis resulting from the proposed change depending on its probability relative to the probability of the current hypothesis.
+        At every iteration of sampling in the analysis, we choose one of these operators at random according to their weight parameters
+        (so operators with higher weights will make proposals more often than operator with lower weights) -->
+
+        <!-- Operators for the tree topology -->
+        <operator id="CFWilsonBalding" spec="CFWilsonBalding" acg="@acg" conversionRate="@conversionRate" pMove="@pMove" blockSet="@motifBlocks" includeRoot="false" alpha="0.1" networkPrior="@ACGBirthDeathModel" weight="10.0"/>
+        <operator id="CFNarrowExchange" spec="CFSubtreeExchange" acg="@acg" conversionRate="@conversionRate" pMove="@pMove" blockSet="@motifBlocks" isNarrow="true" networkPrior="@ACGBirthDeathModel" weight="10.0"/>
+        <operator id="CFWideExchange" spec="CFSubtreeExchange" acg="@acg" conversionRate="@conversionRate" pMove="@pMove" blockSet="@motifBlocks" isNarrow="false" networkPrior="@ACGBirthDeathModel" weight="10.0"/>
+        <!-- Operators for the heights of internal nodes in the tree -->
+        <operator id="CFUniform" spec="CFUniform" acg="@acg" conversionRate="@conversionRate" pMove="@pMove" blockSet="@motifBlocks" scaleFactor="0.9" networkPrior="@ACGBirthDeathModel" weight="100.0"/>
+        <!-- Operators for the heights of leaf nodes (i.e., compiled variants) in the tree -->
+        <operator id="tipDatesRandomWalker.V10" spec="TipDatesRandomWalker" tree="@acg" taxonset="@taxonSet.V10" windowSize="100" weight="1.0"/>
+        <!-- Operators for the birth-death tree prior parameters -->
+        <operator id="OriginUniform" spec="UniformOperator" parameter="@origin" weight="2.0"/>
+        <operator id="BirthRateScaler" spec="ScaleOperator" parameter="@birthRate" scaleFactor="0.43" weight="2.0"/>
+        <operator id="DeathRateScaler" spec="ScaleOperator" parameter="@deathRate" scaleFactor="0.35" weight="2.0"/>
+        <operator id="SamplingRateScaler" spec="ScaleOperator" parameter="@samplingRate" scaleFactor="0.35" weight="2.0"/>
+        <operator id="SamplingProportionUniform" spec="UniformOperator" parameter="@samplingProportion" weight="2.0"/>
+        <!-- Operators for the clock rates -->
+        <operator id="motifsClockRateScaler" spec="ScaleOperator" parameter="@motifs.clockRate" scaleFactor="0.3" weight="3.0"/>
+        <!-- Operator for the conversion rate -->
+        <!-- <operator id="ConversionRateScaler" spec="ScaleOperator" parameter="@conversionRate" scaleFactor="0.2" weight="2.0"/> -->
+        <!-- Operator for borrowing probability -->
+        <!-- <operator id="pMoveUniform" spec="UniformOperator" parameter="@pMove" weight="2.0"/> -->
+        <!-- Operators for contact edges -->
+        <operator id="AddRemoveConversion" spec="AddRemoveConversionGibbs" acg="@acg" pMove="@pMove" conversionRate="@conversionRate" blockSet="@motifBlocks" networkPrior="@ACGBirthDeathModel" weight="50.0">
+            <treeLikelihood idref="likelihood.framing"/>
+            <treeLikelihood idref="likelihood.al-suqya"/>
+            <treeLikelihood idref="likelihood.sad-ibn-abi-waqqas"/>
+            <treeLikelihood idref="likelihood.mount-uhud"/>
+            <treeLikelihood idref="likelihood.prophet"/>
+            <treeLikelihood idref="likelihood.ablution"/>
+            <treeLikelihood idref="likelihood.abraham-prophet"/>
+            <treeLikelihood idref="likelihood.mecca-medina"/>
+            <treeLikelihood idref="likelihood.measures"/>
+            <treeLikelihood idref="likelihood.double-blessing"/>
+            <treeLikelihood idref="likelihood.boundary-markers"/>
+            <treeLikelihood idref="likelihood.ayr-wuayr"/>
+            <treeLikelihood idref="likelihood.trees"/>
+            <treeLikelihood idref="likelihood.game"/>
+            <treeLikelihood idref="likelihood.baridun"/>
+            <treeLikelihood idref="likelihood.tyranny"/>
+        </operator>
+        <operator id="GibbsSampleMovesPerConversion" spec="GibbsSampleMovesPerConversion" acg="@acg" pMove="@pMove" blockSet="@motifBlocks" weight="25.0">
+            <treeLikelihood idref="likelihood.framing"/>
+            <treeLikelihood idref="likelihood.al-suqya"/>
+            <treeLikelihood idref="likelihood.sad-ibn-abi-waqqas"/>
+            <treeLikelihood idref="likelihood.mount-uhud"/>
+            <treeLikelihood idref="likelihood.prophet"/>
+            <treeLikelihood idref="likelihood.ablution"/>
+            <treeLikelihood idref="likelihood.abraham-prophet"/>
+            <treeLikelihood idref="likelihood.mecca-medina"/>
+            <treeLikelihood idref="likelihood.measures"/>
+            <treeLikelihood idref="likelihood.double-blessing"/>
+            <treeLikelihood idref="likelihood.boundary-markers"/>
+            <treeLikelihood idref="likelihood.ayr-wuayr"/>
+            <treeLikelihood idref="likelihood.trees"/>
+            <treeLikelihood idref="likelihood.game"/>
+            <treeLikelihood idref="likelihood.baridun"/>
+            <treeLikelihood idref="likelihood.tyranny"/>
+        </operator>
+        <operator id="ConvertedEdgeSlide" spec="ConvertedEdgeSlide" acg="@acg" apertureSize="0.2" weight="10.0"/>
+        <operator id="ConvertedEdgeFlip" spec="ConvertedEdgeFlip" acg="@acg" weight="1.0"/>
+        <operator id="ConversionSplit" spec="ConversionSplit" acg="@acg" blockSet="@motifBlocks" conversionRate="@conversionRate" networkPrior="@ACGBirthDeathModel" flip="false" pMove="@pMove" weight="1.0"/>
+        <operator id="ConvertedEdgeHop.source" spec="ConvertedEdgeHopGibbs" acg="@acg" sourceOnly="true" blockSet="@motifBlocks" pMove="@pMove" conversionRate="@conversionRate" networkPrior="@ACGBirthDeathModel" weight="2.0">
+            <treeLikelihood idref="likelihood.framing"/>
+            <treeLikelihood idref="likelihood.al-suqya"/>
+            <treeLikelihood idref="likelihood.sad-ibn-abi-waqqas"/>
+            <treeLikelihood idref="likelihood.mount-uhud"/>
+            <treeLikelihood idref="likelihood.prophet"/>
+            <treeLikelihood idref="likelihood.ablution"/>
+            <treeLikelihood idref="likelihood.abraham-prophet"/>
+            <treeLikelihood idref="likelihood.mecca-medina"/>
+            <treeLikelihood idref="likelihood.measures"/>
+            <treeLikelihood idref="likelihood.double-blessing"/>
+            <treeLikelihood idref="likelihood.boundary-markers"/>
+            <treeLikelihood idref="likelihood.ayr-wuayr"/>
+            <treeLikelihood idref="likelihood.trees"/>
+            <treeLikelihood idref="likelihood.game"/>
+            <treeLikelihood idref="likelihood.baridun"/>
+            <treeLikelihood idref="likelihood.tyranny"/>
+        </operator>
+        <operator id="ConvertedEdgeHop.source.narrow" spec="ConvertedEdgeHopGibbs" acg="@acg" sourceOnly="true" nClosestRelatives="3" blockSet="@motifBlocks" pMove="@pMove" conversionRate="@conversionRate" networkPrior="@ACGBirthDeathModel" weight="2.0">
+            <treeLikelihood idref="likelihood.framing"/>
+            <treeLikelihood idref="likelihood.al-suqya"/>
+            <treeLikelihood idref="likelihood.sad-ibn-abi-waqqas"/>
+            <treeLikelihood idref="likelihood.mount-uhud"/>
+            <treeLikelihood idref="likelihood.prophet"/>
+            <treeLikelihood idref="likelihood.ablution"/>
+            <treeLikelihood idref="likelihood.abraham-prophet"/>
+            <treeLikelihood idref="likelihood.mecca-medina"/>
+            <treeLikelihood idref="likelihood.measures"/>
+            <treeLikelihood idref="likelihood.double-blessing"/>
+            <treeLikelihood idref="likelihood.boundary-markers"/>
+            <treeLikelihood idref="likelihood.ayr-wuayr"/>
+            <treeLikelihood idref="likelihood.trees"/>
+            <treeLikelihood idref="likelihood.game"/>
+            <treeLikelihood idref="likelihood.baridun"/>
+            <treeLikelihood idref="likelihood.tyranny"/>
+        </operator>
+        <operator id="ConvertedEdgeHop.narrow" spec="ConvertedEdgeHopGibbs" acg="@acg" blockSet="@motifBlocks" nClosestRelatives="3" pMove="@pMove" conversionRate="@conversionRate" networkPrior="@ACGBirthDeathModel" weight="2.0">
+            <treeLikelihood idref="likelihood.framing"/>
+            <treeLikelihood idref="likelihood.al-suqya"/>
+            <treeLikelihood idref="likelihood.sad-ibn-abi-waqqas"/>
+            <treeLikelihood idref="likelihood.mount-uhud"/>
+            <treeLikelihood idref="likelihood.prophet"/>
+            <treeLikelihood idref="likelihood.ablution"/>
+            <treeLikelihood idref="likelihood.abraham-prophet"/>
+            <treeLikelihood idref="likelihood.mecca-medina"/>
+            <treeLikelihood idref="likelihood.measures"/>
+            <treeLikelihood idref="likelihood.double-blessing"/>
+            <treeLikelihood idref="likelihood.boundary-markers"/>
+            <treeLikelihood idref="likelihood.ayr-wuayr"/>
+            <treeLikelihood idref="likelihood.trees"/>
+            <treeLikelihood idref="likelihood.game"/>
+            <treeLikelihood idref="likelihood.baridun"/>
+            <treeLikelihood idref="likelihood.tyranny"/>
+        </operator>
+
+        <!-- The last component of an analysis is loggers.
+        These just keep track of probabilities and sampled parameter values as the analysis continues 
+        so we can get a picture of how the analysis is converging to an estimate of the posterior distribution of transmissional hypotheses -->
+
+        <!-- The screenlog will write to the console as we run the analysis; to avoid clutter, we only log general details here -->
+        <logger id="screenlog" spec="Logger" logEvery="1000">
+            <log arg="@posterior" id="ESS.0" spec="util.ESS"/>
+            <log idref="posterior"/>
+            <log idref="likelihood"/>
+            <log idref="prior"/>
+            <log spec="ACGStatsLogger" network="@acg" blockSet="@motifBlocks"/>
+        </logger>
+        <!-- The tracelog will write a fuller report of probabilities and sampled values -->
+        <logger id="tracelog" spec="Logger" fileName="$(filebase).log" logEvery="5000" sanitiseHeaders="true" sort="smart">
+            <log idref="posterior"/>
+            <log idref="likelihood"/>
+            <log idref="prior"/>
+            <log idref="motifs.clockRate"/>
+            <log idref="origin"/>
+            <log idref="birthRate"/>
+            <log idref="deathRate"/>
+            <log idref="samplingRate"/>
+            <log idref="samplingProportion"/>
+            <log idref="conversionRate"/>
+            <log idref="pMove"/>
+            <log spec="ACGStatsLogger" network="@acg" blockSet="@motifBlocks"/>
+        </logger>
+        <!-- The trees logger will write all of the sampled tree data to its own file. 
+        This output will be used in various postprocessing procedures to prepare the results of the analysis for presentation -->
+        <logger spec="Logger" fileName="$(filebase).trees" logEvery="5000" mode="tree">
+            <log spec="ACGWithMetaDataLogger" network="@acg" blockSet="@motifBlocks"/>
+        </logger>
+        <!-- This block will contain ancestral state loggers for the motifs at the root of the tree -->
+        <logger id="RootAncestralStateLogger" fileName="$(filebase).ancestral.log" logEvery="5000" mode="tree">
+            <log spec="beastlabs.evolution.likelihood.AncestralStateLogger" id="framing.anclogger" value="root.framing" data="@data.motifs.framing" taxonset="@taxa" siteModel="@siteModel.4" rootFrequencies="@rootfreqs.framing" branchRateModel="@motifs.clock" tree="@marginalTree.framing" useAmbiguities="true" useTipLikelihoods="true"/>
+            <log spec="beastlabs.evolution.likelihood.AncestralStateLogger" id="al-suqya.anclogger" value="root.al-suqya" data="@data.motifs.al-suqya" taxonset="@taxa" siteModel="@siteModel.2" rootFrequencies="@rootfreqs.al-suqya" branchRateModel="@motifs.clock" tree="@marginalTree.al-suqya" useAmbiguities="true" useTipLikelihoods="true"/>
+            <log spec="beastlabs.evolution.likelihood.AncestralStateLogger" id="sad-ibn-abi-waqqas.anclogger" value="root.sad-ibn-abi-waqqas" data="@data.motifs.sad-ibn-abi-waqqas" taxonset="@taxa" siteModel="@siteModel.2" rootFrequencies="@rootfreqs.sad-ibn-abi-waqqas" branchRateModel="@motifs.clock" tree="@marginalTree.sad-ibn-abi-waqqas" useAmbiguities="true" useTipLikelihoods="true"/>
+            <log spec="beastlabs.evolution.likelihood.AncestralStateLogger" id="mount-uhud.anclogger" value="root.mount-uhud" data="@data.motifs.mount-uhud" taxonset="@taxa" siteModel="@siteModel.2" rootFrequencies="@rootfreqs.mount-uhud" branchRateModel="@motifs.clock" tree="@marginalTree.mount-uhud" useAmbiguities="true" useTipLikelihoods="true"/>
+            <log spec="beastlabs.evolution.likelihood.AncestralStateLogger" id="prophet.anclogger" value="root.prophet" data="@data.motifs.prophet" taxonset="@taxa" siteModel="@siteModel.4" rootFrequencies="@rootfreqs.prophet" branchRateModel="@motifs.clock" tree="@marginalTree.prophet" useAmbiguities="true" useTipLikelihoods="true"/>
+            <log spec="beastlabs.evolution.likelihood.AncestralStateLogger" id="ablution.anclogger" value="root.ablution" data="@data.motifs.ablution" taxonset="@taxa" siteModel="@siteModel.2" rootFrequencies="@rootfreqs.ablution" branchRateModel="@motifs.clock" tree="@marginalTree.ablution" useAmbiguities="true" useTipLikelihoods="true"/>
+            <log spec="beastlabs.evolution.likelihood.AncestralStateLogger" id="abraham-prophet.anclogger" value="root.abraham-prophet" data="@data.motifs.abraham-prophet" taxonset="@taxa" siteModel="@siteModel.5" rootFrequencies="@rootfreqs.abraham-prophet" branchRateModel="@motifs.clock" tree="@marginalTree.abraham-prophet" useAmbiguities="true" useTipLikelihoods="true"/>
+            <log spec="beastlabs.evolution.likelihood.AncestralStateLogger" id="mecca-medina.anclogger" value="root.mecca-medina" data="@data.motifs.mecca-medina" taxonset="@taxa" siteModel="@siteModel.3" rootFrequencies="@rootfreqs.mecca-medina" branchRateModel="@motifs.clock" tree="@marginalTree.mecca-medina" useAmbiguities="true" useTipLikelihoods="true"/>
+            <log spec="beastlabs.evolution.likelihood.AncestralStateLogger" id="measures.anclogger" value="root.measures" data="@data.motifs.measures" taxonset="@taxa" siteModel="@siteModel.2" rootFrequencies="@rootfreqs.measures" branchRateModel="@motifs.clock" tree="@marginalTree.measures" useAmbiguities="true" useTipLikelihoods="true"/>
+            <log spec="beastlabs.evolution.likelihood.AncestralStateLogger" id="double-blessing.anclogger" value="root.double-blessing" data="@data.motifs.double-blessing" taxonset="@taxa" siteModel="@siteModel.2" rootFrequencies="@rootfreqs.double-blessing" branchRateModel="@motifs.clock" tree="@marginalTree.double-blessing" useAmbiguities="true" useTipLikelihoods="true"/>
+            <log spec="beastlabs.evolution.likelihood.AncestralStateLogger" id="boundary-markers.anclogger" value="root.boundary-markers" data="@data.motifs.boundary-markers" taxonset="@taxa" siteModel="@siteModel.3" rootFrequencies="@rootfreqs.boundary-markers" branchRateModel="@motifs.clock" tree="@marginalTree.boundary-markers" useAmbiguities="true" useTipLikelihoods="true"/>
+            <log spec="beastlabs.evolution.likelihood.AncestralStateLogger" id="ayr-wuayr.anclogger" value="root.ayr-wuayr" data="@data.motifs.ayr-wuayr" taxonset="@taxa" siteModel="@siteModel.2" rootFrequencies="@rootfreqs.ayr-wuayr" branchRateModel="@motifs.clock" tree="@marginalTree.ayr-wuayr" useAmbiguities="true" useTipLikelihoods="true"/>
+            <log spec="beastlabs.evolution.likelihood.AncestralStateLogger" id="trees.anclogger" value="root.trees" data="@data.motifs.trees" taxonset="@taxa" siteModel="@siteModel.3" rootFrequencies="@rootfreqs.trees" branchRateModel="@motifs.clock" tree="@marginalTree.trees" useAmbiguities="true" useTipLikelihoods="true"/>
+            <log spec="beastlabs.evolution.likelihood.AncestralStateLogger" id="game.anclogger" value="root.game" data="@data.motifs.game" taxonset="@taxa" siteModel="@siteModel.3" rootFrequencies="@rootfreqs.game" branchRateModel="@motifs.clock" tree="@marginalTree.game" useAmbiguities="true" useTipLikelihoods="true"/>
+            <log spec="beastlabs.evolution.likelihood.AncestralStateLogger" id="baridun.anclogger" value="root.baridun" data="@data.motifs.baridun" taxonset="@taxa" siteModel="@siteModel.2" rootFrequencies="@rootfreqs.baridun" branchRateModel="@motifs.clock" tree="@marginalTree.baridun" useAmbiguities="true" useTipLikelihoods="true"/>
+            <log spec="beastlabs.evolution.likelihood.AncestralStateLogger" id="tyranny.anclogger" value="root.tyranny" data="@data.motifs.tyranny" taxonset="@taxa" siteModel="@siteModel.2" rootFrequencies="@rootfreqs.tyranny" branchRateModel="@motifs.clock" tree="@marginalTree.tyranny" useAmbiguities="true" useTipLikelihoods="true"/>
+        </logger>
+    </run>
+</beast>

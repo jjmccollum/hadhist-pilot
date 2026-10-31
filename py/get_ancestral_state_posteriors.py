@@ -1,4 +1,4 @@
-import typer
+import argparse
 from pathlib import Path
 from collections import OrderedDict
 from lxml import etree as et
@@ -45,7 +45,7 @@ def tree_from_split(text):
     return Tree(newick, format=1)     
 
 
-def main(ancestral_log_file: Path, beast_input_file: Path, out: Path, burnin:float=0.0, limit:int=None):
+def write_ancestral_state_posteriors(ancestral_log_file: Path, beast_input_file: Path, out: Path, burnin:float=0.0, limit:int=None):
     # Initialize lists of site labels and lists of lists of state labels:
     site_labels = []
     state_labels = []
@@ -169,8 +169,36 @@ def main(ancestral_log_file: Path, beast_input_file: Path, out: Path, burnin:flo
                 print("WARNING: in site %d (ID %s), there are duplicate state labels in %s." % (i, site_label, str(state_labels[i])))
         with open(out, "w", encoding="utf-8") as outfile:
             yaml.dump(root_probabilities_by_site, outfile, sort_keys=False, allow_unicode=True)
-
         return 
 
-if __name__ == "__main__":
-    typer.run(main)
+"""
+Entry point to the script. Parses command-line arguments and calls the core functions.
+"""
+def main():
+    parser = argparse.ArgumentParser(description="Tabulate the posterior probabilities of sampled ancestral states in the specified .log file, label them in human-readable format using the BEAST input .xml file, and write the reformatted output to an output .yaml file.")
+    parser.add_argument("--burnin", "-b", type=float, default=0.0, help="Burn-in proportion for sampled trees.")
+    parser.add_argument("--limit", "-l", type=int, default=None, help="Maximum number of sampled trees (after burn-in) to process.")
+    parser.add_argument("ancestral_log_file", type=str, help="Input .log file containing ancestral states.")
+    parser.add_argument("beast_xml_file", type=str, help="Input .xml file containing the input for the BEAST analysis.")
+    parser.add_argument("yaml_output", type=str, help="Output .yaml file.")
+    # Parse the command-line arguments:
+    args = parser.parse_args()
+    ancestral_log_file = args.ancestral_log_file
+    beast_xml_file = args.beast_xml_file
+    yaml_output = args.yaml_output
+    burnin = args.burnin
+    limit = args.limit
+    # Do not allow burn-in proportions outside of [0, 1):
+    if burnin < 0.0 or burnin >= 1.0:
+        print("ERROR: burn-in proportion must be at least 0.0 and less than 1.0.")
+        exit(1)
+    # Do not allow negative limit values:
+    if limit is not None and limit < 0:
+        print("ERROR: limit must be at least 0.")
+        exit(1)
+    # Then process the file:
+    write_ancestral_state_posteriors(ancestral_log_file, beast_xml_file, yaml_output, burnin, limit)
+    exit(0)
+
+if __name__=="__main__":
+    main()

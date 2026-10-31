@@ -146,11 +146,13 @@ Entry point to the script. Parses command-line arguments and calls the core func
 """
 def main():
     parser = argparse.ArgumentParser(description="Extract a dictionary of posterior probabilities for contact edges from the sampled networks in a given .trees file.\nThe source and destination branches of the contact edges are described in terms of the clades beneath them.")
-    parser.add_argument("trees_input", type=str, help="Input .trees file.")
     parser.add_argument("--burnin", "-b", type=float, default=0.0, help="Burn-in proportion for sampled trees.")
+    parser.add_argument("trees_input", type=str, help="Input .trees file.")
+    parser.add_argument("log_output", type=str, help="Output file.")
     # Parse the command-line arguments:
     args = parser.parse_args()
     trees_input = args.trees_input
+    log_output = args.log_output
     burnin = args.burnin
     # Do not allow burn-in proportions outside of [0, 1):
     if burnin < 0.0 or burnin >= 1.0:
@@ -158,9 +160,9 @@ def main():
         exit(1)
     # Then process the file:
     posteriors_by_source_dest_tuple = get_contact_edge_distribution(trees_input, burnin)
-    for source_dest_tuple, p in sorted(posteriors_by_source_dest_tuple.items(), key=lambda item: item[1], reverse=True):
-        if p > 0.001:
-            print("%s -> %s: %f\n" % (str(source_dest_tuple[0]), str(source_dest_tuple[1]), p))
+    with open(log_output, "w") as f:
+        for source_dest_tuple, p in sorted(posteriors_by_source_dest_tuple.items(), key=lambda item: item[1], reverse=True):
+            f.write("%s -> %s: %f\n" % (str(source_dest_tuple[0]), str(source_dest_tuple[1]), p))
     exit(0)
 
 if __name__=="__main__":

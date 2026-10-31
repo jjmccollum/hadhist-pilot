@@ -1,0 +1,121 @@
+<itsabeastystatewerein version='2.0' sample='20000000'>
+<statenode id='acg'>(((((((7:109.98714441241987,#786[&amp;conv=786]:0.00001):0.5654828392155764,(((8:20.3112939995234)#4177:18.596692627933578)#921:84.18260475335393)#3149:49.462035870824536)38:5.850765895794325,((((((((11:23.430276490575125,(10:23.321054079943195,9:23.321054079943195)28:0.10922241063192928)49:15.183669886935974,(13:11.181077262475299,12:11.181077262475299)40:27.4328691150358)46:34.512893923745224,((14:11.030964754514827,((16:36.179037533193394,(15:26.3112939995234,#4177[&amp;conv=4177]:0.00001):9.867743533669994)41:8.728949094263584,#921[&amp;conv=921]:0.00001):17.591448699870938)39:27.81072481287552)#2525:0.8166801610528864)36:34.24292721211788,#2753[&amp;conv=2753]:0.00001):22.94345587720602,#5177[&amp;conv=5177]:0.00001):9.568617382929574,((((21:20.921156751183133,22:20.921156751183133)34:72.63031609685513)#765:13.964143738814016)#236:3.5749747939586314,#3149[&amp;conv=3149]:0.00001):28.791249392698887)47:14.124005067666019,(((1:137.1715177413273,(((((18:35.73475431522371,#5162[&amp;conv=5162]:0.00001):0.8860388667270058)#7291:3.7202342079167465,(19:26.18708246985716,#6660[&amp;conv=6660]:0.00001):14.153944920010304)35:40.154628034192456,((17:59.4245083010029,(20:36.62079318195072,#7291[&amp;conv=7291]:0.00001):22.803715119052185)37:12.885651839200534,#2525[&amp;conv=2525]:0.00001):8.185495283856483)44:11.172860260921084)#2770:27.503002056346304)33:22.72770770157041,#7127[&amp;conv=7127]:0.00001):11.788207863598984,((((2:5.705605493004214,3:136.7056054930042)27:65.45423192438037,#1067[&amp;conv=1067]:0.00001):127.15338597319564)#5177:2.33131837457762,((((25:3.15983741738458)#1067:36.23301339183354,(26:5.116282800656563,((24:14.390124512087766,23:14.390124512087766)48:11.796957957769393)#6660:4.929200330799404)45:8.276568008561554)43:67.97691670415608)#2753:0.1458490734780753,#236[&amp;conv=236]:0.00001):25.128925178305565)30:21.04289154133886)29:0.318412534679112)42:5.981298571244054)#786:6.416248735009901)50:4.758957636502714,#9799[&amp;conv=9799]:0.00001):15.494404113953465)#2367:5.955534719026048,#186[&amp;conv=186]:0.00001):9.750718726661887,(((((((((4:50.38546601861188,#2376[&amp;conv=2376]:0.00001):184.34928829661183)#5162:43.40087977026627,((6:50.38546601861188)#2376:82.50026828251416,5:1.8857343011260355)31:145.24989978436395)32:12.53288159949102,#2770[&amp;conv=2770]:0.00001):1.882957163057256,#765[&amp;conv=765]:0.00001):48.34775259485946)#7127:29.263125341034765)#9799:15.494404113953465,#2367[&amp;conv=2367]:0.00001):5.955534719026048)#186:9.750718726661887)51:0.0;</statenode>
+<statenode id='motifs.clockRate'>motifs.clockRate[1 1] (0.0,1.0): 0.001044720506906196 </statenode>
+<statenode id='isnad.slow.clockRate'>isnad.slow.clockRate[1 1] (-Infinity,1.0): 1.0E-4 </statenode>
+<statenode id='isnad.medium.clockRate'>isnad.medium.clockRate[1 1] (-Infinity,1.0): 5.0E-4 </statenode>
+<statenode id='isnad.fast.clockRate'>isnad.fast.clockRate[1 1] (-Infinity,1.0): 0.001 </statenode>
+<statenode id='origin'>origin[1 1] (310.0,460.0): 424.3553742561383 </statenode>
+<statenode id='birthRate'>birthRate[1 1] (-Infinity,Infinity): 0.010187457196982703 </statenode>
+<statenode id='deathRate'>deathRate[1 1] (-Infinity,Infinity): 3.9638596711105814E-4 </statenode>
+<statenode id='samplingRate'>samplingRate[1 1] (-Infinity,Infinity): 0.008659479179312334 </statenode>
+<statenode id='samplingProportion'>samplingProportion[1 1] (0.0,1.0): 0.0810935140841067 </statenode>
+<statenode id='block.framing'>[3149, 7127, 2525, 2753]</statenode>
+<statenode id='block.al-suqya'>[5162, 3149, 9799, 186, 7127, 5177, 786, 2753, 765, 7291]</statenode>
+<statenode id='block.sad-ibn-abi-waqqas'>[5162, 4177, 921, 786, 2770, 765]</statenode>
+<statenode id='block.mount-uhud'>[5162, 236, 9799, 186, 5177, 2753, 2770, 2376, 765]</statenode>
+<statenode id='block.prophet'>[236, 1067, 9799, 7127, 5177, 6660, 786, 7291]</statenode>
+<statenode id='block.ablution'>[3149, 186, 7127, 921, 786]</statenode>
+<statenode id='block.abraham-prophet'>[236, 3149, 186, 7127, 921, 6660, 786, 2753, 2770, 2376]</statenode>
+<statenode id='block.mecca-medina'>[5162, 236, 3149, 1067, 9799, 5177, 921, 2525, 2753, 2770, 2376]</statenode>
+<statenode id='block.measures'>[236, 9799, 5177, 786, 2376, 765]</statenode>
+<statenode id='block.double-blessing'>[5162, 1067, 4177, 7127, 5177, 921, 2367, 786, 2770]</statenode>
+<statenode id='block.boundary-markers'>[921, 786, 2376]</statenode>
+<statenode id='block.ayr-wuayr'>[5162, 236, 4177, 9799, 186, 2376]</statenode>
+<statenode id='block.trees'>[5162, 3149, 4177, 2525, 2367, 6660, 786, 765]</statenode>
+<statenode id='block.game'>[236, 1067, 9799, 921, 2525, 6660, 765, 7291]</statenode>
+<statenode id='block.baridun'>[186, 7127, 2367, 6660, 2770, 7291]</statenode>
+<statenode id='block.tyranny'>[3149, 1067, 2525, 2367, 786]</statenode>
+<statenode id='block.T01'>[]</statenode>
+<statenode id='block.T02'>[]</statenode>
+<statenode id='block.T03'>[]</statenode>
+<statenode id='block.T04'>[]</statenode>
+<statenode id='block.T05'>[]</statenode>
+<statenode id='block.T06'>[]</statenode>
+<statenode id='block.T07'>[]</statenode>
+<statenode id='block.T08'>[]</statenode>
+<statenode id='block.T09'>[]</statenode>
+<statenode id='block.T10'>[]</statenode>
+<statenode id='block.T11'>[]</statenode>
+<statenode id='block.T12'>[]</statenode>
+<statenode id='block.T13'>[]</statenode>
+<statenode id='block.T14'>[]</statenode>
+<statenode id='block.T15'>[]</statenode>
+<statenode id='block.T16'>[]</statenode>
+<statenode id='block.T17'>[]</statenode>
+<statenode id='block.T18'>[]</statenode>
+<statenode id='block.T19'>[]</statenode>
+<statenode id='block.T20'>[]</statenode>
+<statenode id='block.T21'>[]</statenode>
+<statenode id='block.T22'>[]</statenode>
+<statenode id='block.T23'>[]</statenode>
+<statenode id='block.T24'>[]</statenode>
+<statenode id='block.T25'>[]</statenode>
+<statenode id='block.T26'>[]</statenode>
+<statenode id='block.T27'>[]</statenode>
+<statenode id='block.T28'>[]</statenode>
+<statenode id='block.T29'>[]</statenode>
+<statenode id='block.T30'>[]</statenode>
+<statenode id='block.T31'>[]</statenode>
+<statenode id='block.T32'>[]</statenode>
+<statenode id='block.T33'>[]</statenode>
+<statenode id='block.T34'>[]</statenode>
+<statenode id='block.T35'>[]</statenode>
+<statenode id='block.T36'>[]</statenode>
+<statenode id='block.T37'>[]</statenode>
+<statenode id='block.T38'>[]</statenode>
+<statenode id='block.T39'>[]</statenode>
+<statenode id='block.T40'>[]</statenode>
+<statenode id='block.T41'>[]</statenode>
+<statenode id='block.T42'>[]</statenode>
+<statenode id='block.T43'>[]</statenode>
+<statenode id='block.T44'>[]</statenode>
+<statenode id='block.T45'>[]</statenode>
+<statenode id='block.T46'>[]</statenode>
+<statenode id='block.T47'>[]</statenode>
+<statenode id='block.T48'>[]</statenode>
+<statenode id='block.T49'>[]</statenode>
+<statenode id='block.T50'>[]</statenode>
+<statenode id='block.T51'>[]</statenode>
+<statenode id='block.T52'>[]</statenode>
+<statenode id='block.T53'>[]</statenode>
+<statenode id='block.T54'>[]</statenode>
+<statenode id='block.T55'>[]</statenode>
+<statenode id='block.T56'>[]</statenode>
+<statenode id='block.T57'>[]</statenode>
+<statenode id='block.T58'>[]</statenode>
+<statenode id='block.T59'>[]</statenode>
+<statenode id='block.T60'>[]</statenode>
+<statenode id='block.T61'>[]</statenode>
+<statenode id='block.T62'>[]</statenode>
+<statenode id='block.T63'>[]</statenode>
+<statenode id='block.T64'>[]</statenode>
+<statenode id='block.T65'>[]</statenode>
+<statenode id='block.T66'>[]</statenode>
+<statenode id='block.T67'>[]</statenode>
+<statenode id='block.T68'>[]</statenode>
+<statenode id='conversionRate'>conversionRate[1 1] (-Infinity,Infinity): 0.01 </statenode>
+<statenode id='pMove'>pMove[1 1] (-Infinity,Infinity): 0.4 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"CFWilsonBalding","p":"NaN","accept":39875,"reject":803889,"acceptFC":39361,"rejectFC":794515,"rejectIv":57064,"rejectOp":57064},
+{"id":"CFNarrowExchange","p":"NaN","accept":179000,"reject":665613,"acceptFC":176885,"rejectFC":657616,"rejectIv":346635,"rejectOp":346635},
+{"id":"CFWideExchange","p":"NaN","accept":13200,"reject":831025,"acceptFC":13034,"rejectFC":821351,"rejectIv":515373,"rejectOp":515373},
+{"id":"CFUniform","p":"NaN","accept":3766298,"reject":4667340,"acceptFC":3721740,"rejectFC":4612313,"rejectIv":171162,"rejectOp":61461},
+{"id":"tipDatesRandomWalker.V10","p":89.67730814917668,"accept":20009,"reject":64702,"acceptFC":19806,"rejectFC":63903,"rejectIv":42,"rejectOp":0},
+{"id":"OriginUniform","p":"NaN","accept":41021,"reject":127563,"acceptFC":40538,"rejectFC":126036,"rejectIv":119292,"rejectOp":0},
+{"id":"BirthRateScaler","p":0.3565236846944695,"accept":39312,"reject":129394,"acceptFC":38676,"rejectFC":128011,"rejectIv":0,"rejectOp":0},
+{"id":"DeathRateScaler","p":0.15260845022217015,"accept":44342,"reject":124169,"acceptFC":43290,"rejectFC":123192,"rejectIv":0,"rejectOp":0},
+{"id":"SamplingRateScaler","p":0.2573129045972356,"accept":39990,"reject":128987,"acceptFC":39385,"rejectFC":127626,"rejectIv":0,"rejectOp":0},
+{"id":"SamplingProportionUniform","p":"NaN","accept":9249,"reject":159579,"acceptFC":9138,"rejectFC":157728,"rejectIv":0,"rejectOp":0},
+{"id":"motifsClockRateScaler","p":0.3481458002867533,"accept":62372,"reject":191424,"acceptFC":61762,"rejectFC":189049,"rejectIv":0,"rejectOp":0},
+{"id":"AddRemoveConversion","p":"NaN","accept":2592371,"reject":1627638,"acceptFC":2561766,"rejectFC":1608458,"rejectIv":4,"rejectOp":4},
+{"id":"GibbsSampleMovesPerConversion","p":"NaN","accept":2111931,"reject":4,"acceptFC":2087141,"rejectFC":1,"rejectIv":4,"rejectOp":4},
+{"id":"ConvertedEdgeSlide","p":"NaN","accept":515168,"reject":327523,"acceptFC":509034,"rejectFC":323614,"rejectIv":130585,"rejectOp":130585},
+{"id":"ConvertedEdgeFlip","p":"NaN","accept":53409,"reject":31111,"acceptFC":52786,"rejectFC":30750,"rejectIv":0,"rejectOp":0},
+{"id":"ConversionSplit","p":"NaN","accept":14620,"reject":70022,"acceptFC":14457,"rejectFC":69140,"rejectIv":19926,"rejectOp":19926},
+{"id":"ConvertedEdgeHop.source","p":"NaN","accept":97351,"reject":71791,"acceptFC":96240,"rejectFC":70929,"rejectIv":5086,"rejectOp":5086},
+{"id":"ConvertedEdgeHop.source.narrow","p":"NaN","accept":85129,"reject":84773,"acceptFC":84109,"rejectFC":83809,"rejectIv":42146,"rejectOp":42146},
+{"id":"ConvertedEdgeHop.narrow","p":"NaN","accept":75746,"reject":93061,"acceptFC":74836,"rejectFC":91981,"rejectIv":42601,"rejectOp":42601}
+]}
+-->

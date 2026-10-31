@@ -1,0 +1,121 @@
+<itsabeastystatewerein version='2.0' sample='20000000'>
+<statenode id='acg'>((((7:22.312245291042416,#2103[&amp;conv=2103]:0.00001):20.781803984115015,((8:81.90455723928471,#4767[&amp;conv=4767]:0.00001):12.609121085622007,#9912[&amp;conv=9912]:0.00001):10.58037095025071)42:89.28477724283431)#2840:4.662337854138002,(((((((22:3.4726819372586704,21:3.4726819372586704)48:47.643131858339274,(((((4:150.50945110397285,#4276[&amp;conv=4276]:0.00001):24.253044675040684,((2:0.7817107473556462,3:131.78171074735565)27:21.41623845294447,((5:5.6519133102789,6:136.6519133102789)30:13.85753779369395)#4276:2.6884980963272653)29:21.56454657871342)31:26.866004212134044)#3184:23.88265417196766,#763[&amp;conv=763]:0.00001):17.37311212920673,#1190[&amp;conv=1190]:0.00001):7.231547503275976)46:4.008151043069859,(((26:8.061459493419477,((23:23.177018727959535)#3753:3.3341354351557015)#763:7.550305330304241)33:6.185569107867423,((25:15.388581628435617,24:15.388581628435617)49:7.788437099523918,#3753[&amp;conv=3753]:0.00001):17.070009873327365)47:4.0323687109203945,#1708[&amp;conv=1708]:0.00001):10.844567526460509)38:17.188280452374613)#2103:29.16768723242319,#6648[&amp;conv=6648]:0.00001):38.413663769658456,(((1:61.88426629232197)#1190:57.59566623114364)#6648:22.149173566463787,((((20:17.85519001738828,#6560[&amp;conv=6560]:0.00001):32.95303511862025,(((17:17.85519001738828)#6560:20.84931111386399)#9727:1.6580862275251889,(19:28.96382223522059,18:28.96382223522059)28:11.39876512355687)44:10.44563777723107)43:31.70545318889819)#9912:34.76613919543928,((((14:8.149001419462394,(16:41.226349957574456,(15:20.628499991147578,#3184[&amp;conv=3184]:0.00001):20.597849966426878)41:13.554941810369854)34:7.498105544262984)#1708:25.62515992707742)#4767:2.252978514213737,((13:26.135259958661436,12:26.135259958661436)39:23.126055708305273,((10:21.734843794802828,(9:11.475453563271344,11:11.475453563271344)36:10.259390231531484)35:16.969657336449444,#9727[&amp;conv=9727]:0.00001):10.556814535714437)40:22.89622008653174)37:45.12228176684755)45:6.349288569583393)50:16.26449020319467)32:42.48523022486768,#2840[&amp;conv=2840]:0.00001):4.662337854138002)51:0.0;</statenode>
+<statenode id='motifs.clockRate'>motifs.clockRate[1 1] (0.0,1.0): 0.0016131852279180636 </statenode>
+<statenode id='isnad.slow.clockRate'>isnad.slow.clockRate[1 1] (-Infinity,1.0): 1.0E-4 </statenode>
+<statenode id='isnad.medium.clockRate'>isnad.medium.clockRate[1 1] (-Infinity,1.0): 5.0E-4 </statenode>
+<statenode id='isnad.fast.clockRate'>isnad.fast.clockRate[1 1] (-Infinity,1.0): 0.001 </statenode>
+<statenode id='origin'>origin[1 1] (310.0,460.0): 435.66412683782505 </statenode>
+<statenode id='birthRate'>birthRate[1 1] (-Infinity,Infinity): 0.02018637499625395 </statenode>
+<statenode id='deathRate'>deathRate[1 1] (-Infinity,Infinity): 5.294574488718239E-4 </statenode>
+<statenode id='samplingRate'>samplingRate[1 1] (-Infinity,Infinity): 0.008545962129330323 </statenode>
+<statenode id='samplingProportion'>samplingProportion[1 1] (0.0,1.0): 0.07191268905050663 </statenode>
+<statenode id='block.framing'>[2103, 9727, 4767, 6560, 9912, 1708, 4276, 2840]</statenode>
+<statenode id='block.al-suqya'>[2103, 763, 9912, 4276, 2840]</statenode>
+<statenode id='block.sad-ibn-abi-waqqas'>[6560, 1708, 4276, 3184]</statenode>
+<statenode id='block.mount-uhud'>[2103, 763, 6560]</statenode>
+<statenode id='block.prophet'>[3753, 9912, 3184]</statenode>
+<statenode id='block.ablution'>[1708]</statenode>
+<statenode id='block.abraham-prophet'>[4767, 6560, 1708, 2840]</statenode>
+<statenode id='block.mecca-medina'>[763, 4767, 6560, 4276, 3184]</statenode>
+<statenode id='block.measures'>[2103, 4767, 6560, 2840]</statenode>
+<statenode id='block.double-blessing'>[763, 9727, 6560, 2840]</statenode>
+<statenode id='block.boundary-markers'>[763, 6560, 1708, 3184, 2840]</statenode>
+<statenode id='block.ayr-wuayr'>[763, 9727, 6648, 1708, 4276, 2840]</statenode>
+<statenode id='block.trees'>[2103, 9727, 6648, 6560, 1708, 4276, 1190]</statenode>
+<statenode id='block.game'>[3753, 2103, 9727, 6648, 2840]</statenode>
+<statenode id='block.baridun'>[3753, 9727, 6648, 6560, 9912, 3184]</statenode>
+<statenode id='block.tyranny'>[2103, 4767, 2840, 1190]</statenode>
+<statenode id='block.T01'>[]</statenode>
+<statenode id='block.T02'>[]</statenode>
+<statenode id='block.T03'>[]</statenode>
+<statenode id='block.T04'>[]</statenode>
+<statenode id='block.T05'>[]</statenode>
+<statenode id='block.T06'>[]</statenode>
+<statenode id='block.T07'>[]</statenode>
+<statenode id='block.T08'>[]</statenode>
+<statenode id='block.T09'>[]</statenode>
+<statenode id='block.T10'>[]</statenode>
+<statenode id='block.T11'>[]</statenode>
+<statenode id='block.T12'>[]</statenode>
+<statenode id='block.T13'>[]</statenode>
+<statenode id='block.T14'>[]</statenode>
+<statenode id='block.T15'>[]</statenode>
+<statenode id='block.T16'>[]</statenode>
+<statenode id='block.T17'>[]</statenode>
+<statenode id='block.T18'>[]</statenode>
+<statenode id='block.T19'>[]</statenode>
+<statenode id='block.T20'>[]</statenode>
+<statenode id='block.T21'>[]</statenode>
+<statenode id='block.T22'>[]</statenode>
+<statenode id='block.T23'>[]</statenode>
+<statenode id='block.T24'>[]</statenode>
+<statenode id='block.T25'>[]</statenode>
+<statenode id='block.T26'>[]</statenode>
+<statenode id='block.T27'>[]</statenode>
+<statenode id='block.T28'>[]</statenode>
+<statenode id='block.T29'>[]</statenode>
+<statenode id='block.T30'>[]</statenode>
+<statenode id='block.T31'>[]</statenode>
+<statenode id='block.T32'>[]</statenode>
+<statenode id='block.T33'>[]</statenode>
+<statenode id='block.T34'>[]</statenode>
+<statenode id='block.T35'>[]</statenode>
+<statenode id='block.T36'>[]</statenode>
+<statenode id='block.T37'>[]</statenode>
+<statenode id='block.T38'>[]</statenode>
+<statenode id='block.T39'>[]</statenode>
+<statenode id='block.T40'>[]</statenode>
+<statenode id='block.T41'>[]</statenode>
+<statenode id='block.T42'>[]</statenode>
+<statenode id='block.T43'>[]</statenode>
+<statenode id='block.T44'>[]</statenode>
+<statenode id='block.T45'>[]</statenode>
+<statenode id='block.T46'>[]</statenode>
+<statenode id='block.T47'>[]</statenode>
+<statenode id='block.T48'>[]</statenode>
+<statenode id='block.T49'>[]</statenode>
+<statenode id='block.T50'>[]</statenode>
+<statenode id='block.T51'>[]</statenode>
+<statenode id='block.T52'>[]</statenode>
+<statenode id='block.T53'>[]</statenode>
+<statenode id='block.T54'>[]</statenode>
+<statenode id='block.T55'>[]</statenode>
+<statenode id='block.T56'>[]</statenode>
+<statenode id='block.T57'>[]</statenode>
+<statenode id='block.T58'>[]</statenode>
+<statenode id='block.T59'>[]</statenode>
+<statenode id='block.T60'>[]</statenode>
+<statenode id='block.T61'>[]</statenode>
+<statenode id='block.T62'>[]</statenode>
+<statenode id='block.T63'>[]</statenode>
+<statenode id='block.T64'>[]</statenode>
+<statenode id='block.T65'>[]</statenode>
+<statenode id='block.T66'>[]</statenode>
+<statenode id='block.T67'>[]</statenode>
+<statenode id='block.T68'>[]</statenode>
+<statenode id='conversionRate'>conversionRate[1 1] (-Infinity,Infinity): 0.01 </statenode>
+<statenode id='pMove'>pMove[1 1] (-Infinity,Infinity): 0.4 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"CFWilsonBalding","p":"NaN","accept":16332,"reject":827808,"acceptFC":16112,"rejectFC":817953,"rejectIv":57658,"rejectOp":57658},
+{"id":"CFNarrowExchange","p":"NaN","accept":134592,"reject":710088,"acceptFC":133040,"rejectFC":701735,"rejectIv":349375,"rejectOp":349375},
+{"id":"CFWideExchange","p":"NaN","accept":7172,"reject":836398,"acceptFC":7085,"rejectFC":826513,"rejectIv":560959,"rejectOp":560959},
+{"id":"CFUniform","p":"NaN","accept":3533369,"reject":4901755,"acceptFC":3491592,"rejectFC":4844000,"rejectIv":135095,"rejectOp":45160},
+{"id":"tipDatesRandomWalker.V10","p":73.82078374822098,"accept":19377,"reject":65236,"acceptFC":19189,"rejectFC":64430,"rejectIv":1,"rejectOp":0},
+{"id":"OriginUniform","p":"NaN","accept":53869,"reject":115054,"acceptFC":53223,"rejectFC":113658,"rejectIv":94455,"rejectOp":0},
+{"id":"BirthRateScaler","p":0.3324679859795254,"accept":36180,"reject":132969,"acceptFC":35600,"rejectFC":131528,"rejectIv":0,"rejectOp":0},
+{"id":"DeathRateScaler","p":0.15083787114199626,"accept":43846,"reject":125137,"acceptFC":42870,"rejectFC":124118,"rejectIv":0,"rejectOp":0},
+{"id":"SamplingRateScaler","p":0.29650452682704426,"accept":43494,"reject":125673,"acceptFC":42839,"rejectFC":124292,"rejectIv":0,"rejectOp":0},
+{"id":"SamplingProportionUniform","p":"NaN","accept":9335,"reject":159937,"acceptFC":9211,"rejectFC":158030,"rejectIv":1,"rejectOp":0},
+{"id":"motifsClockRateScaler","p":0.33295579750996873,"accept":57651,"reject":195392,"acceptFC":57065,"rejectFC":193024,"rejectIv":0,"rejectOp":0},
+{"id":"AddRemoveConversion","p":"NaN","accept":2444706,"reject":1776312,"acceptFC":2415725,"rejectFC":1755068,"rejectIv":0,"rejectOp":0},
+{"id":"GibbsSampleMovesPerConversion","p":"NaN","accept":2109643,"reject":0,"acceptFC":2084718,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"ConvertedEdgeSlide","p":"NaN","accept":458839,"reject":384662,"acceptFC":453387,"rejectFC":380154,"rejectIv":161031,"rejectOp":161031},
+{"id":"ConvertedEdgeFlip","p":"NaN","accept":48980,"reject":35233,"acceptFC":48424,"rejectFC":34812,"rejectIv":0,"rejectOp":0},
+{"id":"ConversionSplit","p":"NaN","accept":13651,"reject":70307,"acceptFC":13489,"rejectFC":69491,"rejectIv":20635,"rejectOp":20635},
+{"id":"ConvertedEdgeHop.source","p":"NaN","accept":84546,"reject":84668,"acceptFC":83500,"rejectFC":83679,"rejectIv":10528,"rejectOp":10528},
+{"id":"ConvertedEdgeHop.source.narrow","p":"NaN","accept":77306,"reject":91503,"acceptFC":76396,"rejectFC":90432,"rejectIv":39863,"rejectOp":39863},
+{"id":"ConvertedEdgeHop.narrow","p":"NaN","accept":69166,"reject":99815,"acceptFC":68345,"rejectFC":98662,"rejectIv":40110,"rejectOp":40110}
+]}
+-->

@@ -1,0 +1,69 @@
+#NEXUS
+
+Begin taxa;
+	Dimensions ntax=26;
+		Taxlabels
+			V1
+			V2
+			V3
+			V4
+			V5
+			V6
+			V7
+			V8
+			V9a
+			V9b
+			V9c
+			V9d
+			V9e
+			V10
+			V11a
+			V11b
+			V12a
+			V12b
+			V12c
+			V12d
+			V13a
+			V13b
+			V14a
+			V14b
+			V14c
+			V15
+			;
+End;
+
+Begin contactrees;
+	blockSet block.framing block.al-suqya block.sad-ibn-abi-waqqas block.mount-uhud block.prophet block.ablution block.abraham-prophet block.mecca-medina block.measures block.double-blessing block.boundary-markers block.ayr-wuayr block.trees block.game block.baridun block.tyranny;
+End;
+
+Begin trees;
+	Translate
+		     1 V1,
+		     2 V2,
+		     3 V3,
+		     4 V4,
+		     5 V5,
+		     6 V6,
+		     7 V7,
+		     8 V8,
+		     9 V9a,
+		    10 V9b,
+		    11 V9c,
+		    12 V9d,
+		    13 V9e,
+		    14 V10,
+		    15 V11a,
+		    16 V11b,
+		    17 V12a,
+		    18 V12b,
+		    19 V12c,
+		    20 V12d,
+		    21 V13a,
+		    22 V13b,
+		    23 V14a,
+		    24 V14b,
+		    25 V14c,
+		    26 V15
+;
+tree STATE_18140000 = [&R] ((((23:36.07711950767532,26:10.07711950767532)45:3.7950533059337204,(24:10.914553777659478,25:10.914553777659478)43:28.957619035949563)48:96.46047740637533,((1:122.62772779333363,(6:135.04699335486717,5:4.046993354867169)31:168.58073443846646)42:18.878932736005652,#6290[&conv=6290, relSize=0.38, affectedBlocks="{block.al-suqya,block.mecca-medina,block.double-blessing,block.trees,block.game,block.tyranny}"]:0.00001):12.825989690645088)33:57.08132334555569,(((4:201.86194252243763,#2321[&conv=2321, relSize=0.25, affectedBlocks="{block.sad-ibn-abi-waqqas,block.abraham-prophet,block.mecca-medina,block.tyranny}"]:0.00001):31.15166429575521,(2:4.6713237500937055,3:135.6713237500937)27:97.34228306809914)30:136.0547001935356,(((((8:66.38087670979888)#6379:37.40352724706014,(7:15.449215328831087)#3051:26.335188628027936)47:17.70619576947098,((21:14.374520377552585,22:14.374520377552585)34:40.0063563322463,#6379[&conv=6379, relSize=0.50, affectedBlocks="{block.framing,block.al-suqya,block.sad-ibn-abi-waqqas,block.mount-uhud,block.abraham-prophet,block.measures,block.ayr-wuayr,block.baridun}"]:0.00001):55.10972301653112)29:35.30341887547172,((((12:19.29984199227289,(13:2.86194252243763)#2321:16.43789946983526)41:15.297507389393019,#1336[&conv=1336, relSize=0.50, affectedBlocks="{block.framing,block.al-suqya,block.prophet,block.mecca-medina,block.measures,block.double-blessing,block.game,block.tyranny}"]:0.00001):44.8783560511807,(((10:23.637349391008712,(9:23.605824390228094,11:23.605824390228094)49:0.031525000780618484)28:10.959999990657195)#1336:35.17340134727377,(14:4.711578622173704,(16:34.33968905574412,15:34.33968905574412)40:35.96829780833576)46:17.462763864859795)36:9.704954703906935)39:44.030955096492676)#6290:21.28735807246244)32:11.115463390431273,((19:46.49028208937682,(18:40.2772219091801,(17:18.193395377269184,20:18.193395377269184)35:22.083826531910915)44:6.21306018019672)37:18.958933239454268,#3051[&conv=3051, relSize=0.19, affectedBlocks="{block.framing,block.ablution,block.tyranny}"]:0.00001):90.46026666340191)38:14.158825019495453)50:23.34566655381161)51:0.0;
+End;

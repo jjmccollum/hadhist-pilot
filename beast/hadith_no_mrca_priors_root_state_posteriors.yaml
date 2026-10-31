@@ -1,0 +1,59 @@
+Framing of the account with reference to another person:
+  absent: 0.9861149680644266
+  ʿAlī b. Abī Ṭālib, third-person: 0.0011108025548458762
+  ʿAlī b. Abī Ṭālib, first-person: 0.005554012774229381
+  Abu Talha, narrated by his servant boy: 0.007220216606498195
+Reference to al-Suqyā:
+  absent: 0.9564009997222994
+  present: 0.04359900027770064
+Reference to Saʿd ibn Abi Waqqas:
+  absent: 0.9813940572063315
+  present: 0.018605942793668426
+Reference to Mount Uhud ('a mountain that loves us and whom we love'):
+  absent: 0.9861149680644266
+  present: 0.013885031935573451
+Description of the Prophet:
+  absent: 0.010552624271035824
+  Muhammad: 0.0019439044709802832
+  The Prophet: 0.17828381005276311
+  The Messenger of Allah: 0.8092196612052208
+Reference to the Prophet's performance of ablution:
+  absent: 0.9825048597611774
+  present: 0.017495140238822548
+Parallel references to Abraham and the Prophet:
+  absent: 0.0
+  References to Abraham and the Prophet without descriptions: 0.9577895029158567
+  Reference to Abraham as servant and messenger, reference to the Prophet without description: 0.01416273257428492
+  Reference to Abraham as friend and prophet, reference to the Prophet as servant and prophet: 0.005554012774229381
+  Reference to Abraham as servant and friend and the Prophet as servant and messenger: 0.02249375173562899
+Parallel references to Mecca and Medina:
+  absent: 0.0
+  Mecca blessed, Medina blessed: 0.022216051096917523
+  Mecca sanctified, Medina sanctified: 0.9777839489030825
+Reference to the blessing of the measures of the sāʿ and mudd:
+  absent: 0.7847820049986115
+  present: 0.2152179950013885
+Reference to a double blessing for Medina:
+  absent: 0.9622327131352402
+  present: 0.03776728686475979
+Reference to the two boundary markers of the sanctuary:
+  absent: 0.24409886142738127
+  Lava fields: 0.7547903360177728
+  Mountains: 0.0011108025548458762
+Reference to the shade of ʿAyr and the shade of Wuʿayr:
+  absent: 1.0
+  present: 0.0
+Reference to trees in Medina:
+  absent: 0.9927797833935018
+  Prohibition on cutting trees: 0.0011108025548458762
+  Prohibition on cutting thorny trees: 0.006109414051652319
+Reference to game in Medina:
+  absent: 0.9919466814773674
+  Game may be eaten: 0.0
+  Game may not be hunted: 0.008053318522632602
+Reference to Medina as a barīdun:
+  absent: 1.0
+  present: 0.0
+Promise of divine punishment for tyranny:
+  absent: 0.9947236878644821
+  present: 0.005276312135517912
